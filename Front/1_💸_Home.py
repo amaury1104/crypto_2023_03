@@ -15,7 +15,7 @@ st.set_page_config(initial_sidebar_state="collapsed")
 tab1, tab2, tab3 = st.tabs(["💸 Home", "📈 Prediction", "⚽️ The team"])
 
 with tab1:
-    with open("designing.css") as source_des :
+    with open("./Front/designing.css") as source_des :
         st.markdown(f"<style>{source_des.read()}</style>", unsafe_allow_html=True)
         st.markdown("<h1 style='text-align: center;'>CPP<br>- Crypto Price Prediction -<br> Or how to get rich</h1>", unsafe_allow_html=True)
 
@@ -99,28 +99,28 @@ with tab3:
 
     st.markdown("---")
 
-    with open("designing.css") as source_des :
+    with open("./Front/designing.css") as source_des :
         st.markdown(f"<style>{source_des.read()}</style>", unsafe_allow_html=True)
 
-    image1 = Image.open('logo/logo_real.jpeg')
+    image1 = Image.open('./Front/logo/logo_real.jpeg')
 
     st.image(image1, width=130,)
 
     st.markdown(" **Alexis :** He initiated the project and was responsible of scapping the data from the API. As he describe himself, 21, Brussels, Chess, Crypto, Combat Sports, Finance and Engineering. Planning on freelancing as a Data Scientist as well as creating apps. Tempus Fugit ")
 
-    image2 = Image.open('logo/logo_psg.jpeg')
+    image2 = Image.open('./Front/logo/logo_psg.jpeg')
 
     st.image(image2, width=150,)
 
     st.markdown("**Amaury :** He wisely joinded the project and was in charge of the backend. He works as a Data Analyst at Wave.ai, a small business that aims at revolutionizing the way professional coaching works (find out more [here](https://www.wave.ai/)). He lives in Saint-Germain-en-Laye near Paris, France, with his wife and dog Jackson.")
 
-    image3 = Image.open('logo/logo_arsenal.jpeg')
+    image3 = Image.open('./Front/logo/logo_arsenal.jpeg')
 
     st.image(image3, width=150,)
 
     st.markdown("**Aran :** Lucky us, he jumped in the project to take care of the model. He is a computer science student and plan to go into Artificial Intelligence, using his behind the table skills to make better decisions with his algorithms")
 
-    image4 = Image.open('logo/logo_united.jpeg')
+    image4 = Image.open('./Front/logo/logo_united.jpeg')
 
     st.image(image4, width=150,)
 
