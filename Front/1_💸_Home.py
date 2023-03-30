@@ -3,8 +3,12 @@ import json
 import streamlit as st
 import requests
 from streamlit_lottie import st_lottie
-from datetime import date
+import matplotlib.pyplot as plt
+import pandas as pd
+
 from PIL import Image
+from utiles import get_crypto_data, get_x_y, price_prediction, plot_last_month
+
 
 st.set_page_config(initial_sidebar_state="collapsed")
 
@@ -50,26 +54,41 @@ with tab2 :
 
 
     response = requests.get('https://crypto-j2nsa5srea-ew.a.run.app/predict')
+    json_data = json.loads(response.text)
 
-    st.markdown("**The Prediction :**")
-
-    if st.button("Click to get our estimation of the bitcoin price in 24h"):
-        st.text(response.json())
-
-    def load_lottieurl(url: str):
-        r = requests.get(url)
-        if r.status_code != 200:
-            return None
-        return r.json()
-
-    st.write(
-        f'<iframe src="https://news.bitcoin.com/"></iframe>',
-        unsafe_allow_html=True,
-    )
 
     lottie_pred = load_lottieurl("https://assets3.lottiefiles.com/packages/lf20_a6jfvjhr.json")
-
     st_lottie(lottie_pred, height=200)
+
+
+    if st.button("Click to get our estimation of the bitcoin price in 24h"):
+
+
+        df = get_crypto_data()
+        fig, ax = plot_last_month(df, json_data["result"])
+        st.pyplot(fig)
+        #st.text(response.json())
+        #def load_lottieurl(url: str):
+           # r = requests.get(url)
+            #if r.status_code != 200:
+            #    return None
+           # return json_data(2)
+        #col1, col2 = st.columns(2)
+
+        # Add content to the left column
+        #with col1:
+            #df = get_crypto_data()
+            #st.pyplot(plot_last_month(df, json_data["result"]))
+
+        #st.set_option('deprecation.showPyplotGlobalUse', False)
+
+        #st.pyplot(plot_last_month(df, json_data["result"]), clear_figure=False)
+
+
+        # Adjust the width of the plot to align to the left
+        #plot._repr_html_ = plot._repr_html_.replace("<div", "<div style='margin-left: 0; margin-right: auto;'")
+
+
 
 
 with tab3:
