@@ -15,9 +15,8 @@ st.set_page_config(initial_sidebar_state="collapsed")
 tab1, tab2, tab3 = st.tabs(["💸 Home", "📈 Prediction", "⚽️ The team"])
 
 with tab1:
-    with open("./Front/designing.css") as source_des :
-        st.markdown(f"<style>{source_des.read()}</style>", unsafe_allow_html=True)
-        st.markdown("<h1 style='text-align: center;'>CPP<br>- Crypto Price Prediction -<br> Or how to get rich</h1>", unsafe_allow_html=True)
+
+    st.markdown("<h1 style='text-align: center;'>CPP<br>- Crypto Price Prediction -<br> Or how to get rich</h1>", unsafe_allow_html=True)
 
     st.markdown("---")
 
@@ -67,27 +66,6 @@ with tab2 :
         df = get_crypto_data()
         fig, ax = plot_last_month(df, json_data["result"])
         st.pyplot(fig)
-        #st.text(response.json())
-        #def load_lottieurl(url: str):
-           # r = requests.get(url)
-            #if r.status_code != 200:
-            #    return None
-           # return json_data(2)
-        #col1, col2 = st.columns(2)
-
-        # Add content to the left column
-        #with col1:
-            #df = get_crypto_data()
-            #st.pyplot(plot_last_month(df, json_data["result"]))
-
-        #st.set_option('deprecation.showPyplotGlobalUse', False)
-
-        #st.pyplot(plot_last_month(df, json_data["result"]), clear_figure=False)
-
-
-        # Adjust the width of the plot to align to the left
-        #plot._repr_html_ = plot._repr_html_.replace("<div", "<div style='margin-left: 0; margin-right: auto;'")
-
 
 
 
@@ -99,8 +77,6 @@ with tab3:
 
     st.markdown("---")
 
-    with open("./Front/designing.css") as source_des :
-        st.markdown(f"<style>{source_des.read()}</style>", unsafe_allow_html=True)
 
     image1 = Image.open('./Front/logo/logo_real.jpeg')
 
